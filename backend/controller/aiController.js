@@ -3,6 +3,7 @@ import Habit from "../models/Habit.js";
 import AIInsight from "../models/AIInsight.js";
 import { chatCompletion, SYSTEM_PROMPTS } from "../utils/aiServer.js";
 import { todayKey, lastNDays, calcStreak } from "../utils/dateHelper.js";
+import { parseJSON } from "../utils/aiServer.js"; 
 
 const buildWeeklyContext = async (userId) => {
     const habits = await Habit.find({ userId, isArchived: false});
