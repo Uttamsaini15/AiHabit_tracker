@@ -73,7 +73,7 @@ export const suggestHabits = async (req, res) => {
     let suggestions = [];
     try {
       const parsed = JSON.parse(content.replace(/```json|```/g, "").trim());
-      suggestions = parsed.suggestions || [];
+      Array.isArray(parsed) ? parsed : (parsed.suggestions || []);
     } catch {
       suggestions = [];
     }
